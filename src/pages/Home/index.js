@@ -1,12 +1,17 @@
 /* Modules */
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
+import Loading from '../../components/Loading';
+const Todos = lazy(() => import('../../components/Todos'));
 
 /**
  * Home
  */
 const Home = () => {
     return(
-        <h1>Home</h1>
+        <Suspense fallback={<Loading />}>
+            <h1> Home</h1>
+            <Todos />
+        </Suspense>
     );
 }
 
